@@ -3,7 +3,7 @@ import { exampleLoginSchema } from "../schema/example";
 import { testData } from "../testData";
 
 describe("Example login schema", () => {
-  it("Should pass with valid data", () => {
+  test("Should pass with valid data", () => {
     const validData = {
       email: testData.validEmail,
       password: testData.validPassword,
@@ -13,7 +13,7 @@ describe("Example login schema", () => {
     expect(validationResult.success).toBe(true);
   });
 
-  it("Should fail when required fields are missing", () => {
+  test("Should fail when required fields are missing", () => {
     const invalidData = {
       email: testData.emptyString,
       password: testData.emptyString,
@@ -23,7 +23,7 @@ describe("Example login schema", () => {
     expect(validationResult.success).toBe(false);
   });
 
-  it("Should fail when the email is invalid", () => {
+  test("Should fail when the email is invalid", () => {
     const invalidData = {
       email: testData.invalidEmail,
       password: testData.validPassword,
@@ -33,7 +33,7 @@ describe("Example login schema", () => {
     expect(validationResult.success).toBe(false);
   });
 
-  it("Should fail when the password is invalid", () => {
+  test("Should fail when the password is invalid", () => {
     const invalidData = {
       email: testData.validEmail,
       password: testData.invalidPassword,
